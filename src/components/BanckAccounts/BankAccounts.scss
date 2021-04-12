@@ -1,0 +1,15 @@
+.bank-accounts {
+
+  &__box-icon {
+    background-color: #E5E5E5;
+    height: 64px;
+    width: 67px;
+    border-radius: 10px;
+    font-size: 40px;
+  }
+
+  &__card {
+    --background: #FF6310;
+    --ion-card-background: #FF6310;
+  }
+}

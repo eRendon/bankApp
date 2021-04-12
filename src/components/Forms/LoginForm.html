@@ -1,0 +1,20 @@
+<div class="bg-orangeAqua-50 lg:w-4/12 md:6/12 w-10/12 m-auto shadow-md">
+    <div class="py-8 px-8 rounded-xl">
+        <h1 class="font-medium text-2xl mt-3 text-white text-center">Iniciar Sesión</h1>
+        <form @submit.prevent="logIn" action="" class="mt-6">
+            <div class="my-5 text-sm">
+                <label for="username" class="block text-black text-white">Usuario</label>
+                <input v-model="userForm.email" type="text" autofocus id="username" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Usuario" />
+            </div>
+            <div class="my-5 text-sm">
+                <label for="passwordForm" class="block text-black text-white">Contraseña</label>
+                <input v-model="userForm.password" type="password" id="passwordForm" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Contraseña" />
+                <div class="flex justify-end mt-2 text-xs text-white">
+                    <a href="../../pages/auth/forget_password.html hover:text-black">Olvidaste tu contraseña?</a>
+                </div>
+            </div>
+
+            <button-app :disabled="!userForm.password || !userForm.email" class="w-full" text="Iniciar Sesión"></button-app>
+        </form>
+    </div>
+</div>

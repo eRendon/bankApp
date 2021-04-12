@@ -1,0 +1,37 @@
+<ion-page>
+    <ion-content>
+        <div class="bg-blueDark-50">
+            <div class="pb-16 pt-8">
+                <div class="bg-orangeAqua-50 lg:w-4/12 md:6/12 w-10/12 m-auto shadow-md">
+                    <div class="py-8 px-8 rounded-xl">
+                        <h1 class="font-medium text-2xl mt-3 text-white text-center">Iniciar Sesión</h1>
+                        <v-form @submit="register" v-slot="{ values, errors }" class="mt-6">
+                            <div class="my-5 text-sm">
+                                <label for="firstName" class="block text-black text-white">Nombe</label>
+                                <ion-input v-model="registerForm.firstName" type="text" autofocus id="firstName" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Usuario" ></ion-input>
+                            </div>
+                            <div class="my-5 text-sm">
+                                <label for="lastName" class="block text-black text-white">Apellido</label>
+                                <input v-model="registerForm.lastName" type="text" id="lastName" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Usuario" />
+                            </div>
+                            <div class="my-5 text-sm">
+                                <label for="email" class="block text-black text-white">Email</label>
+                                <input v-model="registerForm.email" type="text"  id="email" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Usuario" />
+                            </div>
+                            <div class="my-5 text-sm">
+                                <label for="password" class="block text-black text-white">Contraseña</label>
+                                <input v-model="registerForm.password" type="password" id="password" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Contraseña" />
+                            </div>
+                            <div class="my-5 text-sm">
+                                <label for="confirmPassword" class="block text-black text-white">Confirmar contraseña</label>
+                                <input v-model="registerForm.confirmPassword" type="password" id="confirmPassword" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Confirmar contraseña" />
+                            </div>
+
+                            <button-app :disabled="validateSubmit" class="w-full" text="Registrarse"></button-app>
+                        </v-form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-page>

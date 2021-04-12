@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{ title }}</ion-title>
+        <ion-buttons  slot="end" class="buttons-last-slot sc-ion-buttons-ios-h sc-ion-buttons-ios-s ios hydrated">
+            <ion-button @click="closeModal" class="ios button button-clear in-toolbar text-blue-500 ion-activatable ion-focusable hydrated">Cerrar</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="bg-blueDark-50 h-full">
+        <div class="pt-16">
+            <div class="bg-orangeAqua-50 lg:w-4/12 md:6/12 w-10/12 m-auto shadow-md">
+                <div class="py-8 px-8 rounded-xl">
+                    <form @submit.prevent="createAccount" action="" class="mt-4">
+                        <div class="my-5 text-sm">
+                            <label for="alias" class="block text-black text-white">Alias</label>
+                            <input v-model="accountData.alias" type="text" autofocus id="alias" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Usuario" />
+                        </div>
+                        <div class="my-5 text-sm">
+                            <label for="description" class="block text-black text-white">Descipción</label>
+                            <input v-model="accountData.description" type="text" id="description" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Descipción" />
+                        </div>
+                        <div @click="actionTypeSheet" class="my-5 text-sm">
+                            <label for="typeAccount" class="block text-black text-white">Typo</label>
+                            <input  disabled  type="text" id="typeAccount" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" :placeholder="accountData.type === 0 ? 'Ahorros' : 'Corriente'" />
+                        </div>
+
+                        <button-app class="w-full" text="Crear Cuenta"></button-app>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

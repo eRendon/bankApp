@@ -1,0 +1,7 @@
+{
+  "name": "bankDeveloper",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

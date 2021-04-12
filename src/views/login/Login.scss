@@ -1,0 +1,28 @@
+.login {
+  &__bubble-information {
+    top: -24px;
+    left: -241px;
+    background-color: #FF6310;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+  }
+
+  &__text-information {
+    font-size: 31px;
+    @apply font-bold;
+    max-width: 226px;
+    &--data {
+      font-size: 25px;
+    }
+  }
+
+  &__member {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  &__login-button {
+    width: 315px
+  }
+}

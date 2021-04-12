@@ -1,0 +1,14 @@
+.header {
+
+  &__dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    @apply bg-orangeAqua-50
+  }
+
+  &__title {
+    font-size: 15px;
+    @apply font-bold
+  }
+}

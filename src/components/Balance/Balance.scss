@@ -1,0 +1,24 @@
+.balance{
+
+  &__box {
+    height: 176px;
+    @apply bg-yellowAqua-50;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  &__total {
+    font-size: 32px;
+    @apply font-bold pt-4
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__detail {
+    font-size: 14px;
+    @apply font-bold pt-4
+  }
+}

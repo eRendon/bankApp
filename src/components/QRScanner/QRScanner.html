@@ -1,0 +1,8 @@
+<div class="stream fullscreen">
+    <div class="icon-close" @click="$emit('closeScanner')">
+        <ion-icon :icon="closeCircleOutline"></ion-icon>
+    </div>
+    <qr-stream :camera="camera" @decode="onDecode($event)" @init="onInit" class="mb">
+        <div style="color: red;" class="frame"></div>
+    </qr-stream>
+</div>

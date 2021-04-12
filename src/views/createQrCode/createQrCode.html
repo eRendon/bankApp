@@ -1,0 +1,49 @@
+<ion-page>
+    <ion-content>
+        <div v-if="!isQrGenerated" class="bg-blueDark-50 h-full">
+            <div class="pt-16">
+                <div class="bg-orangeAqua-50 lg:w-4/12 md:6/12 w-10/12 m-auto shadow-md">
+                    <div class="py-8 px-8 rounded-xl">
+                        <ion-list>
+                            <ion-item>
+                                <ion-label>Cuenta</ion-label>
+                                <ion-select v-model="accountSelected" value="brown" ok-text="Ok" cancel-text="Cancelar">
+                                    <ion-select-option v-for="account in accounts" :value="account">{{ account.accountNumber }}</ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label position="stacked">Con Valor</ion-label>
+                                <ion-checkbox class="ion-color ion-color-tertiary ios in-item checkbox-checked interactive hydrated" slot="start" v-model="haveValue"></ion-checkbox>
+                            </ion-item>
+                            <ion-item v-if="haveValue">
+                                <ion-label>Moneda</ion-label>
+                                <ion-select v-model="typeCurrency" ok-text="Ok" cancel-text="Cancelar">
+                                    <ion-select-option value="COP">Peso Colombiano</ion-select-option>
+                                    <ion-select-option value="USD">Dólares</ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                        <div v-if="haveValue" class="my-5 text-sm">
+                            <label for="balance" class="block text-black text-white">Valor</label>
+                            <input v-model="accountSelected.balance" type="text" id="balance" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Valor" />
+                        </div>
+                        <div  class="my-5 text-sm">
+                            <label for="reference" class="block text-black text-white">Referencia</label>
+                            <input v-model="referenceQr" type="text" id="reference" class="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Referencia" />
+                        </div>
+                        <button-app :disabled="!accountSelected.accountNumber" @click="generateQR" class="w-full" text="Generar QR"></button-app>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-orangeAqua-50 h-full flex-col flex justify-center items-center" v-if="isQrGenerated">
+            <q-r-code :value="qrData"></q-r-code>
+            <ion-list class="w-full mt-2">
+                <ion-item>Cuenta: {{ qrData.account.accountNumber }}</ion-item>
+                <ion-item>Valor: {{ qrData.account.balance }}</ion-item>
+                <ion-item>Moneda: {{ qrData.currency }}</ion-item>
+                <ion-item>Referencia: {{ qrData.referenceQr }}</ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-page>
